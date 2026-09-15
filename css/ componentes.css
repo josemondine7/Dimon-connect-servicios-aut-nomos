@@ -1,1 +1,96 @@
 
+.tarjeta {
+  background: rgba(30,41,59,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radio-lg);
+  padding: var(--espacio-lg);
+  backdrop-filter: blur(10px);
+  transition: var(--transicion);
+}
+.tarjeta:hover {
+  border-color: rgba(37,99,235,0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.entrada-grupo {
+  margin-bottom: var(--espacio-md);
+}
+.entrada-grupo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+.entrada-grupo input,
+.entrada-grupo select,
+.entrada-grupo textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radio-md);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(15,23,42,0.5);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transicion);
+}
+.entrada-grupo input:focus,
+.entrada-grupo select:focus,
+.entrada-grupo textarea:focus {
+  border-color: rgba(37,99,235,0.5);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.grupo-botones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: var(--espacio-lg);
+}
+.grupo-botones .boton {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.875rem 1rem;
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radio-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.etiqueta-verde { background: rgba(16,185,129,0.2); color: #34d399; }
+.etiqueta-azul { background: rgba(37,99,235,0.2); color: #60a5fa; }
+.etiqueta-dorado { background: rgba(217,119,6,0.2); color: #fbbf24; }
+.etiqueta-gris { background: rgba(71,85,105,0.2); color: #94a3b8; }
+
+.alerta {
+  padding: var(--espacio-md);
+  border-radius: var(--radio-md);
+  margin-bottom: var(--espacio-md);
+}
+.alerta-informativa {
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(37,99,235,0.3);
+  color: #93c5fd;
+}
+.alerta-exito {
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #6ee7b7;
+}
+.alerta-advertencia {
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #fcd34d;
+}
+.alerta-peligro {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+}
+
+.oculto { display: none !important; }
+.centrar-texto { text-align: center; }
