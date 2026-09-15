@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Dimon Connect — Servicios Autónomos</title>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+  
+  <script type="module" src="js/idioma.js"></script>
+</head>
+<body>
+
+  <!-- Fondo de pantalla -->
+  <div class="fondo-pantalla"></div>
+
+  <!-- Barra superior -->
+  <header class="barra-superior">
+    <button class="boton-descargar-app" id="btnInstalarApp">📲 Instalar App</button>
+    <button class="boton-idioma" id="btnAbrirIdioma">Español</button>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="contenedor-centro">
+    <div class="caja-principal">
+      
+      <!-- Buscador -->
+      <div class="buscador-principal aparece retraso-1">
+        <input type="text" id="buscador" data-traducir="buscarPlaceholder" placeholder="Buscar servicios...">
+      </div>
+
+      <!-- Botones principales -->
+      <div class="botones-principales aparece retraso-2">
+        <button class="boton boton-verde boton-grande" onclick="irAPantalla('ofrecer')">
+          ✅ <span data-traducir="brindarServicio">Ofrecer mi Servicio</span>
+        </button>
+        <button class="boton boton-azul boton-grande" onclick="irAPantalla('oferta')">
+          📋 <span data-traducir="ofertaDemanda">Servicios que se ofrecen</span>
+        </button>
+        <button class="boton boton-dorado boton-grande" onclick="irAPantalla('demanda')">
+          📝 <span data-traducir="solicitarServicio">Servicios que se solicitan</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Botón Lira abajo izquierdo -->
+  <button class="boton-lira-abajo aparece retraso-3" onclick="irAPantalla('lira')">🛡️</button>
+
+  <!-- Pie de página abajo derecho -->
+  <footer class="pie-pagina aparece retraso-4">
+    <a href="#" onclick="irAPantalla('queEsDimon')" data-traducir="queEsDimon">¿Qué es Dimon Connect?</a>
+    <a href="#" onclick="irAPantalla('normas')" data-traducir="normasSeguridad">Normas y Seguridad</a>
+    <a href="#" onclick="irAPantalla('terminos')" data-traducir="terminosCondiciones">Términos y Condiciones</a>
+    <a href="#" onclick="irAPantalla('legal')" data-traducir="informacionLegal">Información Legal</a>
+  </footer>
+
+  <!-- Selector de idiomas (oculto) -->
+  <div id="selectorIdioma" class="selector-idioma oculto">
+    <div class="selector-contenido">
+      <span class="cerrar" onclick="cerrarSelectorIdioma()">&times;</span>
+      <h3 data-traducir="elegirIdioma">Elegir idioma</h3>
+      <div id="listaIdiomas"></div>
+    </div>
+  </div>
+
+  <script>
+    function irAPantalla(nombre) {
+      window.location.href = `pantallas/${nombre}.html`;
+    }
+    const botonInstalar = document.getElementById('btnInstalarApp');
+    let eventoInstalacion;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      eventoInstalacion = e;
+      botonInstalar.style.display = 'block';
+    });
+    botonInstalar.addEventListener('click', async () => {
+      if (!eventoInstalacion) return;
+      eventoInstalacion.prompt();
+      const { outcome } = await eventoInstalacion.userChoice;
+      if (outcome === 'accepted') console.log('App instalada');
+      eventoInstalacion = null;
+    });
+  </script>
+  
+</body>
+</html>
 
