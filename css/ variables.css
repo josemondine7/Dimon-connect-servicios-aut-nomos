@@ -1,26 +1,31 @@
-
 :root {
-  --color-fondo: #0f172a;
-  --color-texto: #f8fafc;
-  --color-primario: #2563eb;
-  --color-exito: #10b981;
-  --color-alerta: #f59e0b;
-  --color-peligro: #ef4444;
-  --color-dorado: #d97706;
-  
-  --espacio-xs: 0.25rem;
-  --espacio-sm: 0.5rem;
-  --espacio-md: 1rem;
-  --espacio-lg: 1.5rem;
-  --espacio-xl: 2rem;
-  
-  --radio-sm: 0.375rem;
-  --radio-md: 0.75rem;
-  --radio-lg: 1rem;
-  --radio-full: 9999px;
-  
-  --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  --sombra-suave: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --sombra-media: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  /* Colores principales */
+  --bg-dark: #0e1a21;
+  --bg-mid: #2b414f;
+  --bg-light: #3f5e72;
+  --text-main: #d6e6ef;
+  --text-soft: #c3d6df;
+  --text-blue: #7ab8d0;
+  --text-title: #8faec0;
+  --text-title-light: #d2e9f5;
+  --text-footer: #8aa5b3;
+
+  /* Pills / Botones */
+  --pill-bg-start: #5a8aa6;
+  --pill-bg-end: #2f4d62;
+  --pill-download-start: #4bbbd8;
+  --pill-download-end: #2a8eb0;
+  --pill-text: #dceaf1;
+
+  /* Logo */
+  --diamond-start: #1a3a4d;
+  --diamond-end: #4ab2d6;
+  --diamond-core-start: #6dd4f0;
+  --diamond-core-end: #2a8eb0;
+
+  /* Sombras y bordes */
+  --border-light: rgba(255,255,255,0.22);
+  --shadow-strong: 0 5px 12px rgba(0,0,0,0.45);
+  --shadow-logo: 0 12px 18px rgba(0,0,0,0.6);
+  --radius-pill: 999px;
 }
