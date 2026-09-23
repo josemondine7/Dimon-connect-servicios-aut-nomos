@@ -8,7 +8,7 @@ Es una plataforma que conecta **personas que necesitan un servicio** con **perso
 ## ✅ Características principales
 - 🌐 **14 idiomas** — Traducción automática en todas las pantallas
 - 💬 **Chat con bloqueo inteligente** — No se pueden compartir datos de contacto antes de cerrar el trato
-- 💰 **Comisiones claras** — 6% total: 3% al que contrata + 3% al que trabaja. Sin pagos por fuera
+- 💰 **Comisiones claras** — 20% total: 10% al que contrata + 10% al que trabaja. Sin pagos por fuera
 - 🤖 **Lira IA** — Traduce, verifica precios, resuelve dudas y cuida el sistema
 - 📱 **App instalable** — Se agrega al celular como una aplicación nativa
 - 📜 **Documentos legales completos** — Términos, condiciones y normas de seguridad
