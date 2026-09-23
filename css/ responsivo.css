@@ -1,53 +1,19 @@
 
-@media (max-width: 768px) {
-  .caja-principal {
-    padding: 0;
-  }
-  
-  .boton-grande {
-    padding: 1rem;
-    font-size: 1rem;
-  }
-  
-  .barra-superior {
-    padding: var(--espacio-sm) var(--espacio-md);
-  }
-  
-  .pie-pagina a {
-    font-size: 0.72rem;
-  }
+/* Tablet */
+@media (max-width: 900px) {
+  .map-section { width: 100vw; }
+  footer { flex-direction: column; text-align: center; }
 }
 
-@media (max-width: 480px) {
-  .contenedor-centro {
-    padding: var(--espacio-md);
-  }
-  
-  .boton-idioma,
-  .boton-descargar-app {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.8rem;
-  }
-  
-  .boton-lira-abajo {
-    width: 42px;
-    height: 42px;
-    bottom: 1rem;
-    left: 1rem;
-  }
-  
-  .pie-pagina {
-    right: 1rem;
-    bottom: 1rem;
-  }
-  
-  .grupo-botones {
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .caja-principal {
-    max-width: 520px;
-  }
+/* Celular */
+@media (max-width: 600px) {
+  body { padding: 20px 12px; }
+  .logo-wrap h1 { font-size: 30px; }
+  .search-box { height: 52px; }
+  .search-box input { font-size: 16px; }
+  .buttons { gap: 8px; }
+  .pill { padding: 8px 14px; font-size: 11px; }
+  .download-wrap { justify-content: center; }
+  .info { margin-top: 30px; }
+  .info h3 { font-size: 16px; }
 }
