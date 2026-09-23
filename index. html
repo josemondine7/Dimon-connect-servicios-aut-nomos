@@ -5,173 +5,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dimon Connect</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-  body{
-    min-height:100vh;
-    background: radial-gradient(circle at 50% 0%, #3a5a6e 0%, #2a4050 25%, #1c2f3d 60%, #121e27 100%);
-    color:#d6e6ef;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:30px 20px;
-  }
-  .logo-wrap{
-    display:flex;flex-direction:column;align-items:center;margin-top:20px;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-  }
-  .diamond{
-    width:76px;height:76px;
-    background: linear-gradient(135deg, #1a3a4d 0%, #4ab2d6 100%);
-    transform: rotate(45deg);
-    border-radius:14px;
-    display:grid;place-items:center;
-    box-shadow: inset 0 0 0 3px rgba(0,0,0,0.6), 0 4px 15px rgba(0,0,0,0.4);
-    position:relative;
-  }
-  .diamond-inner{
-    width:54px;height:54px;
-    background:#0f222f;
-    border-radius:10px;
-    display:grid;place-items:center;
-    transform: rotate(0deg);
-  }
-  .diamond-core{
-    width:28px;height:28px;
-    background: linear-gradient(135deg, #6dd4f0, #2a8cbf);
-    transform: rotate(45deg);
-    box-shadow: 0 0 15px rgba(100,200,255,0.8);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  }
-  h1{
-    margin-top:22px;
-    font-size:38px;font-weight:800;letter-spacing:0.5px;
-    color:#a7c5d4;
-    text-shadow: 0 2px 0 #0a141c, 0 4px 10px rgba(0,0,0,0.6);
-  }
-  h1 span{color:#cfe8f5}
-
-  /* Search */
-  .search-box{
-    margin-top:28px;
-    width:min(520px,90vw);
-    height:56px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:999px;
-    display:flex;align-items:center;
-    padding:0 20px;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 10px 20px rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-  }
-  .search-box input{
-    flex:1;background:transparent;border:none;outline:none;
-    color:#fff;font-size:18px;font-weight:600;
-    margin-left:12px;
-  }
-  .search-box input::placeholder{color:#c5d7e0;font-weight:700}
-
-  /* Idiomas */
-  .top-actions{width:min(980px,95vw);display:flex;justify-content:flex-start;margin-top:18px}
-  .pill{
-    background: linear-gradient(180deg, #4a7a94, #2f4d62);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:999px;
-    padding:8px 18px;
-    font-size:13px;font-weight:700;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
-    cursor:pointer;transition:.2s;
-    color:#d9ecf5;
-  }
-  .pill:hover{transform:translateY(-2px);filter:brightness(1.2)}
-
-  /* Mapa */
-  .map-container{
-    position:relative;
-    width:min(980px,95vw);
-    margin-top:10px;
-    height:420px;
-  }
-  .map-container img{
-    width:100%;height:100%;object-fit:contain;
-    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5)) brightness(1.1);
-    opacity:0.95;
-  }
-  /* Simulación de mapa 3D con CSS si no hay imagen */
-  .world{
-    position:absolute;inset:0;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/contain no-repeat;
-    opacity:0.9;
-    filter: invert(0.8) sepia(1) hue-rotate(165deg) saturate(2) brightness(1.2) drop-shadow(0 10px 15px rgba(0,0,0,0.6));
-  }
-  .glow-line{
-    position:absolute;width:100%;height:100%;pointer-events:none;
-  }
-
-  /* Botones */
-  .buttons{
-    display:flex;flex-wrap:wrap;gap:12px;justify-content:center;
-    width:min(980px,95vw);margin-top:20px;
-  }
-  .buttons .pill{padding:10px 20px;font-size:13px}
-
-  .descargar{
-    align-self:flex-end;
-    margin-top:14px;
-    background: linear-gradient(180deg, #4bbbd8, #2a8eb0);
-    font-size:11px;padding:7px 14px;
-  }
-
-  /* Texto */
-  .info{text-align:center;max-width:520px;margin-top:50px;line-height:1.5}
-  .info h3{font-size:18px;margin-bottom:10px}
-  .info h3 span{color:#7ab8d0}
-  .info p{font-size:14px;color:#c3d6df;font-weight:400}
-  .info .como{margin-top:18px;color:#7ab8d0;font-weight:700;font-size:17px}
-
-  footer{
-    width:100%;margin-top:auto;padding-top:60px;
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
-    font-size:10px;color:#8aa5b3;gap:10px;
-    border-top:none;
-  }
-  footer .links a{color:#8aa5b3;text-decoration:none;margin:0 4px}
-  footer .links a:hover{color:#fff}
-  .dola{font-size:20px;font-weight:800;color:#c8d9e2;letter-spacing:0.5px}
-
-  @media(max-width:600px){
-    h1{font-size:28px}
-    .map-container{height:260px}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="logo-wrap">
+  <header class="logo-wrap">
     <div class="diamond"><div class="diamond-inner"><div class="diamond-core"></div></div></div>
     <h1>Dimon <span>Connect</span></h1>
-  </div>
+  </header>
 
   <div class="search-box">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c9dcea" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-    <input type="text" placeholder="Buscar servicios..." id="buscar">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9dcea" stroke-width="2.5"><circle cx="11" cy="11" r="6.5"/><path d="M20 20L16.5 16.5"/></svg>
+    <input type="text" placeholder="Buscar servicios...">
   </div>
 
   <div class="top-actions">
-    <button class="pill" onclick="alert('Selector de idiomas')">Idiomas</button>
+    <button class="pill">Idiomas</button>
   </div>
 
-  <div class="map-container">
-    <div class="world"></div>
-    <!-- podés reemplazar el div .world por tu imagen render del mapa si la tenés -->
-    <svg class="glow-line" viewBox="0 0 1000 400" preserveAspectRatio="none">
-      <path d="M 120 200 Q 300 50 500 180 T 900 180" stroke="#a8e6ff" stroke-width="1.2" fill="none" opacity="0.6" stroke-dasharray="5 8"/>
-      <path d="M 80 250 Q 200 300 350 220" stroke="#a8e6ff" stroke-width="1" fill="none" opacity="0.5"/>
-    </svg>
-  </div>
+  <section class="map-section">
+    <img src="mapa.png" alt="Mapa mundial Dimon Connect" class="map-img">
+  </section>
 
-  <div class="buttons">
+  <nav class="buttons">
     <button class="pill">Brindar mi Servicio</button>
     <button class="pill">Servicios Ofrecidos</button>
     <button class="pill">Servicios Solicitados</button>
@@ -180,35 +37,27 @@
     <button class="pill">Proyectos</button>
     <button class="pill">Agenda</button>
     <button class="pill">Actividad Reciente</button>
-  </div>
-  <div style="width:min(980px,95vw);display:flex;justify-content:flex-end">
+  </nav>
+
+  <div class="download-wrap">
     <button class="pill descargar">Dercargar App</button>
   </div>
 
-  <div class="info">
+  <section class="info">
     <h3>QQué es Dimon <span>Connect?</span></h3>
     <p>Plataforma para conectar servicios autónomos<br>de forma rápida, segura y organizada.</p>
-    <div class="como">¿Cómo funciona?</div>
-  </div>
+    <a href="#" class="como">¿Cómo funciona?</a>
+  </section>
 
   <footer>
-    <div style="display:flex;align-items:center;gap:8px">
-      <span style="font-size:22px">🛡️</span>
+    <div class="foot-left">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a9c3d1" stroke-width="1.2"><path d="M12 2L3 6v6c0 5 3.8 9.7 9 10 5.2-.3 9-5 9-10V6l-9-4z"/><path d="M12 7v6M10 11h4"/></svg>
       <div class="links">
-        <a href="#">Normas de Seguridad</a> | 
-        <a href="#">Informacion Legal</a> | 
-        <a href="#">Términos y Condiciones</a> | 
-        <a href="#">Política de Privacidad</a> | 
-        <a href="#">Contacto</a>
+        <a href="#">Normas de Seguridad</a> | <a href="#">Informacion Legal</a> | <a href="#">Términos y Condiciones</a> | <a href="#">Política de Privacidad</a> | <a href="#">Contacto</a>
       </div>
     </div>
     <div class="dola">Dola AI</div>
   </footer>
 
-<script>
-  document.getElementById('buscar').addEventListener('input', e=>{
-    console.log('Buscando:', e.target.value);
-  });
-</script>
 </body>
 </html>
